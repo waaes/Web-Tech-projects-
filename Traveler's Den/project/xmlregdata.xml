@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml-stylesheet type="text/css" href="mystyle.css" ?>-->
+<travel name="T" >
+	<user >
+		<fname>nishat</fname>
+		<lname>tasnim</lname>
+		<username>nishat</username>
+		<mail>nishat@gmail.com</mail>
+		<number>01821346523</number>
+		<pass>876</pass>
+		<cpass>876</cpass>
+        <type>member</type>	
+        <status>confirm</status>			
+	</user>
+	<user type="admin">
+		<fname>mohammad</fname>
+		<lname>waaes</lname>
+		<username>waaes</username>
+		<mail>waaes@gmail.com</mail>
+		<number>01785514557</number>
+		<pass>1234</pass>
+		<cpass>1234</cpass>
+        <type>admin</type>	
+        <status>confirm</status>		
+	</user>
+	<user type="regular">
+		<fname>alamin</fname>
+		<lname>biswas</lname>
+		<username>alamin</username>
+		<mail>alu@gmail.com</mail>
+		<number>01821238721</number>
+		<pass>234</pass>
+		<cpass>234</cpass>
+        <type>member</type>	
+        <status>confirm</status>		
+	</user>
+</travel>

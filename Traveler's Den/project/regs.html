@@ -1,0 +1,191 @@
+﻿<html>
+<head>
+    
+    <title>Sign up</title>
+	
+    <link rel="stylesheet" type="text/css" href="CSS/signUp.css">
+<script>
+function validate(){
+
+    fn=document.fm.fname.value;
+	ln=document.fm.lname.value;
+	un=document.fm.uname.value;
+	dob=document.fm.dob.value;
+	mail=document.fm.email.value;
+	v=document.fm.psw.value;
+	cv=document.fm.cpsw.value;
+	mob=document.fm.mobile.value;
+	//v=document.forms[0].elements[1].value;
+	//alert(v);
+	
+	
+	document.getElementById("msg").innerHTML="";
+	document.getElementById("msg1").innerHTML="";
+	document.getElementById("msg2").innerHTML="";
+	document.getElementById("msg3").innerHTML="";
+	document.getElementById("msg4").innerHTML="";
+	document.getElementById("msg5").innerHTML="";
+	document.getElementById("msg6").innerHTML="";
+	
+	   if(fn == "" )
+	{
+	     document.getElementById("msg").style.color="red";
+		 document.getElementById("msg").innerHTML="Missing1";
+		 return false;
+	   
+	}
+
+	 else if(ln == "")
+	{
+	     document.getElementById("msg1").style.color="red";
+		document.getElementById("msg1").innerHTML="Missing2";
+		return false;
+	   
+	}
+	else if(un == "")
+	{
+	     document.getElementById("msg2").style.color="red";
+		 document.getElementById("msg2").innerHTML="Missing3";
+		 return false;
+	   
+	}
+	/*else if(dob == "")
+	{
+	     document.getElementById("msg").style.color="red";
+		document.getElementById("msg").innerHTML="Missing4";
+		return false;
+	   
+	}*/
+	else if(mail == "")
+	{
+	     document.getElementById("msg3").style.color="red";
+		document.getElementById("msg3").innerHTML="Missing5";
+		return false;
+	   
+	}
+	else if(mob == "")
+	{
+	     document.getElementById("msg4").style.color="red";
+		document.getElementById("msg4").innerHTML="Missing6";
+		return false;
+	   
+	}
+	else if(v == "")
+	{
+	     document.getElementById("msg5").style.color="red";
+		document.getElementById("msg5").innerHTML="Missing7";
+		return false;
+	   
+	}
+	else if(cv == ""  )
+	{
+	    document.getElementById("msg6").style.color="red";
+		document.getElementById("msg6").innerHTML="Missing8";
+		return false;
+	   
+	}
+	
+	else if(mob.length<11 && typeof mob != 'number')
+	{
+	    alert("invalid phone number ");
+		return false;
+	   
+	}
+	else if(v.length<=3 && cv.length<=3 ){
+		
+		alert("invalid password or confirm password ");
+		return false;
+	}
+	else if(validatemail(mail))
+	{
+	     alert("invalid mail address");
+		return false;
+	   
+	}
+	
+		  
+     
+	
+	
+}
+</script>
+</head>
+<style>
+body, html {
+    
+    height: 100%;
+	margin:0;
+}
+
+.bg {
+
+    background-image: url("/po/pics/k20.jpg");
+
+    height: 100%; 
+
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+
+<body>
+<div id="body">
+<div class="bg" >
+    <div class="slogan">
+        <h2>Traveler's Den</h2>
+        <p>"Life is either a daring adventure</p>
+        <p>Or nothing at all !!"</p>
+		<p>-Helen Keller</p>
+    </div>
+    <div class="form" >
+        <h3>Sign Up!!!</h3>
+        <hr>
+        <form action="data_adder.php" method="post" name="fm">
+            <table>
+                <tr>
+                    <td class="lbl"style="color:white">FIRST NAME</td>
+                    <td ><input type="text" placeholder="Enter Firstname" name="fname" size="30" maxlength="30" required></td><td><span id="msg"></span></td>
+                </tr>
+                <tr>
+                    <td class="lbl" style="color:white">LAST NAME</td>
+                    <td><input type="text" placeholder="Enter Lastname" name="lname" size="20" maxlength="30" required></td><td><span id="msg1"></span></td>
+                </tr>
+                <tr>
+                    <td class="lbl" style="color:white">User Name</td>
+                    <td><input type="text" placeholder="Enter Username" name="uname" size="30" required></td><td><span id="msg2"></span></td>
+                </tr>
+                <tr>
+                    <td class="lbl" style="color:white">DATE OF BIRTH</td>
+                    <td><input type="date" name="dob"></td>
+                </tr>
+                <tr><td class="lbl" style="color:white">EMAIL</td>
+                    <td><input type="email" placeholder="Enter email" name="email" size="20" maxlength="100" required></td><td><span id="msg3"></span></td>
+                </tr>
+                <tr>
+                    <td class="lbl" style="color:white">Phone Number</td>
+                    <td><input type="text" placeholder="Enter Phone Number" name="mobile" size="20" required></td></td><td><span id="msg4"></span></td>
+                </tr>
+                <tr>
+                    <td class="lbl" style="color:white">Password</td>
+                    <td><input type="password" placeholder="Enter Password" name="psw" size="20" required></td></td><td><span id="msg5"></span></td>
+                </tr>
+                <tr>
+                    <td class="lbl" style="color:white">Repeat Password</td>
+                    <td><input type="password" placeholder="Re-enter Password" name="cpsw" size="20" required></td></td><td><span id="msg6"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <input type="reset" value="Reset" name="reset">
+                        <input type="submit" value="Submit" onclick="return validate()" name="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+		
+     </div>
+  </div>
+</div>	
+</body>
+</html>

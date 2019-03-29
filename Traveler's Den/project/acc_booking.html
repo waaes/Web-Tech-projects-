@@ -1,0 +1,210 @@
+<html>
+<head>
+<style>
+/* Style the header */
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #666;
+    padding: 5px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  width: 100%;
+  font-family: cooper black;
+  font-size: 20px;
+  padding:20px;
+  
+ 
+}
+input {
+    width: 40%;
+    padding: 5px;
+    margin: 5px ;
+    
+}
+
+
+
+</style>
+
+<script>
+/*
+xmlhttp = new XMLHttpRequest();
+flag="";
+function clearCombo(id){
+	var list=document.getElementById(id);
+	while (list.firstChild) {
+		list.removeChild(list.firstChild);
+	}
+}
+function loadJSONToCombo(id,jsn){
+	var resp=JSON.parse(jsn);
+	var combo = document.getElementById(id);
+	for(i=0;i<resp.length;i++){
+		var option = document.createElement("option");
+		option.text = resp[i].trans_comp;
+		option.value = resp[i].trans_comp;
+		combo.add(option); 
+	}
+}
+
+function loadCompany(v) {
+	str=v.value;
+	flag="loadCompany";
+	clearCombo("companyList");
+	//document.getElementById("spinner").style.visibility= "visible";
+	xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {	
+			loadJSONToCombo("companyList",xmlhttp.responseText);
+			//document.getElementById("spinner").style.visibility= "hidden";
+		}
+	};
+	var url="fetch.php";
+	xmlhttp.open("POST", url, true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("flag="+flag+"&ttypeid="+str);
+}
+*/
+
+
+function validate(){
+
+	ap=document.acc_fm.a_type.value;
+	rs=document.acc_fm.r_spec.value;
+	ac=document.acc_fm.a_comp.value;
+	ci=document.acc_fm.c_in.value;
+	co=document.acc_fm.c_out.value;
+	mail=document.acc_fm.email.value;
+	pn=document.acc_fm.pnumb.value;
+	
+	
+	document.getElementById("msg").innerHTML="";
+	document.getElementById("msg1").innerHTML="";
+	document.getElementById("msg2").innerHTML="";
+	document.getElementById("msg3").innerHTML="";
+	document.getElementById("msg4").innerHTML="";
+	document.getElementById("msg5").innerHTML="";
+	document.getElementById("msg6").innerHTML="";
+	
+	
+	   if(ap == "" )
+	{
+	     document.getElementById("msg").style.color="red";
+		 document.getElementById("msg").innerHTML="Missing1";
+		 return false;
+	   
+	}
+
+	 else if(rs == "")
+	{
+	     document.getElementById("msg1").style.color="red";
+		document.getElementById("msg1").innerHTML="Missing2";
+		return false;
+	   
+	}
+	 else if(ac == "")
+	{
+	     document.getElementById("msg2").style.color="red";
+		document.getElementById("msg2").innerHTML="Missing3";
+		return false;
+	   
+	}
+	else if(ci == "")
+	{
+	     document.getElementById("msg3").style.color="red";
+		 document.getElementById("msg3").innerHTML="Missing4";
+		 return false;
+	   
+	}
+	else if(co == "")
+	{
+	     document.getElementById("msg4").style.color="red";
+		 document.getElementById("msg4").innerHTML="Missing5";
+		 return false;
+	   
+	}
+
+	else if(mail == "")
+	{
+	     document.getElementById("msg5").style.color="red";
+		document.getElementById("msg5").innerHTML="Missing6";
+		return false;
+	   
+	}
+	else if(pn == "")
+	{
+	     document.getElementById("msg6").style.color="red";
+		document.getElementById("msg6").innerHTML="Missing7";
+		return false;
+	   
+	}
+	
+	else if(pn.length<11 && typeof pn != 'number')
+	{
+	    alert("invalid phone number ");
+		return false;
+	   
+	}
+      if(/^\w+([\.-]?\ w+)*@\w+([\.-]?\ w+)*(\.\w{2,3})+$/.test(mail))
+	{
+	    //alert("valid mail address");
+		return true;
+	   
+	}
+	else
+	{
+	     alert("invalid mail address");
+		return false;
+	   
+	}
+	
+	
+	
+}
+</script>
+</head>
+<body>
+<form action="accommodation_adder.php" method="post" name="acc_fm">
+<header>
+  Booking Service
+  
+</header>
+<table>
+  <tr>
+    <th style="text-align:center; padding:20px">Accomodation Booking</th>
+	
+	</tr>
+	  <tr> 
+	       <td>
+	          </br>Accommodatioin Type:<pre style="display:inline">           </pre><input type="text" placeholder="Enter type" name="a_type" size="20" maxlength="100" required><span id="msg"></span>  </br><hr>
+	          </br>Room Specification: <pre style="display:inline">		</pre><input type="text" placeholder="Enter specification" name="r_spec" size="20" maxlength="100" required><span id="msg1"></span>  </br><hr>
+              </br>Accommodatioin Company: <pre style="display:inline">      </pre><input type="text" placeholder="Enter Company" name="a_comp" size="20" maxlength="100" required><span id="msg2"></span> </br><hr>
+              </br>Check-in Date:      <pre style="display:inline">		        </pre><input type="date" placeholder="Enter check in date" name="c_in" size="20" maxlength="100" required><span id="msg3"></span> </br><hr>
+			  </br>Check-out Date:     <pre style="display:inline">		        </pre><input type="date" placeholder="Enter check out date" name="c_out" size="20" maxlength="100" required><span id="msg4"></span> </br><hr>
+              </br>Email Address:    <pre style="display:inline">		        </pre><input type="text" placeholder="Enter Mail Address" name="email" size="20" maxlength="100" required><span id="msg5"></span> </br><hr>
+			  </br>Contact Number:    <pre style="display:inline">	        </pre><input type="text" placeholder="Enter Number" name="pnumb" size="20" maxlength="100" required><span id="msg6"></span> </br></br>
+			  
+			  <input type="reset" value="Reset" name="reset">
+              <input type="submit" value="Submit" onclick="return validate()" name="submit"></br></br>
+           </td>
+		   
+		 
+	
+       </tr>
+ 
+  </table>
+  </form>
+  </body>
+  </html>
